@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link
+    href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxIREBUSEhERFhMQEw0SEBAPEBAODRIPFREWFhURFRUYHSggGBolGxYVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQ0NDg0NDy0ZFRktKysrKys3LSsrKysrLSsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIANwA3AMBIgACEQEDEQH/xAAcAAEAAgIDAQAAAAAAAAAAAAAABgcDBAECBQj/xABREAABAwICAwgLDAcGBwAAAAACAAEDBBEFEgYHIRMiMUFCUWGBFBcyUlRxkZShsdEWM1NicoKSk6KywdIjJDZ1tNPxCBU1c+PwNENVZIOzwv/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/EABYRAQEBAAAAAAAAAAAAAAAAAAARAf/aAAwDAQACEQMRAD8AvFERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERARF1L+iDsijOlmmVLhwM85O5k1whBs0ptz24G61Ai15Bd7UJ24s1SLF9kH9alWLjRU529B8ALzof5advQfAC86H+WlIuNFTnb0H/AKeXnX+mvf0X1s0dWbRyCcEhPlFpCEoifmz7PUlSLERdLqvdJ9bVHSGUUYHUGD2LcyEYRfmz7fUqRYqKnO3oPgBedf6advQfAC86H+WpVi40VOdvQfAC86H+WuY9eIO+2hO3G41AuXkcG9aUi4kUa0T0ypcSB3gN84tc4T2Sh83jUkFVHKIiAiIgIiICIiAiIgIigetbS2ow2GE6donKWQxLdQIxsI34nZBPFimkYRcn2MLETv0MqB7c2I/B0vK/5Un51OdX2l9RidNWPOMTbiAsG5AQXzhJe+Z371lKsUhpHjElZVS1EjvmkInYXfuA5MbdDMvNXLrhRRERAT+qIgt8tNZvc1mzvuzy9g7rysmW+Z+nJsVQeXrffKYP+zrfvUv4RQ9AREQEREV6mjOMSUdVFURu94yG4s+9MOUD+Nl9ZxGxMxNwEzE3idfHIcPWK+gdYmmNRhlPRvTjE7zATFuoEfcBFbLZ2790qbiyUXz5258R+DpOH4M/zqyNVWltRiUMxztExRSAI7kBANiG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"
+    rel="icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Croissant+One&family=Forum&family=Kaisei+Tokumin:wght@400;500;700;800&family=Montserrat:wght@400;700&family=Mooli&family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,200&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,300&family=Satisfy&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Croissant+One&family=Forum&family=Kaisei+Tokumin:wght@400;500;700;800&family=Montserrat:wght@400;700&family=Mooli&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,300&family=Satisfy&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Croissant+One&family=Forum&family=Kaisei+Tokumin:wght@400;500;700;800&family=Montserrat:wght@400;700&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,300&family=Satisfy&display=swap"
+    rel="stylesheet">
+  <style>
+    .navbar {
+      background-color: transparent !important;
+    }
+
+    .navbar-fixed-top {
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+  </style>
+  <title>Travel Blog</title>
+</head>
+
+<body style="background: linear-gradient(to top,white,rgba(214, 206, 206, 0.431));">
+
+
+
+  <div class="carousel-item active">
+    <img src="https://c4.wallpaperflare.com/wallpaper/320/838/411/desert-camels-sandstorm-wallpaper-preview.jpg"
+      alt="Image 1" style="width: 100%; height: 700px; position: absolute;filter: brightness(75%);">
+
+  </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light " style="position: relative;">
+    <a class="navbar-brand text-dark" href="#">Let's Travel</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a style="font-weight: bold;" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a style="font-weight: bold;" class="nav-link" href="#">Blogs</a>
+        </li>
+        <li class="nav-item">
+          <a style="font-weight: bold;" class="nav-link" href="#">Destinations</a>
+        </li>
+        <li class="nav-item">
+          <a style="font-weight: bold;" class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="banner-desc" style="margin-top: -90px;">
+    <h1>Travel World, Travel Adventurously</h1>
+    <p>Welcome to your one-stop resource for a life-changing journey.</p>
+    <div>
+      <h5>BEGIN YOUR</h5>
+      <h5> JOURNEY HERE</h5>
+    </div>
+  </div>
+
+  <section>
+
+    <div class="row"
+      style="margin-top: 520px;display: flex; flex-direction: row;margin-left: 160px; margin-right: 160px;  ">
+      <div class="col-6">
+        <p style="font-family: 'Nunito Sans', sans-serif;font-size: 16px;letter-spacing: 1px; ">Along Dusty Roads brings
+          you the beauty of a life of travel, personally curated by us, Andrew & Emily.</p>
+        <p style="font-family: 'Nunito Sans', sans-serif; font-size: 16px;letter-spacing: 1px;">Our crafted guides,
+          thoughtful narratives, and original photography journals wed wanderlust and practical advice to help and
+          inspire curious travellers like you to make the most of your own slow, sustainable adventures.</p>
+
+        <p style="font-family: 'Nunito Sans', sans-serif; font-weight: bold;">WE WANT TO HELP YOU TO TRAVEL MORE, TRAVEL
+          BETTER.</p>
+        <div class="mb-4">
+          <!-- Facebook -->
+          <a class="btn btn-outline-dark btn-floating m-1 rounded-5" href="#!" role="button"><i
+              class="fab fa-facebook-f"></i></a>
+
+          <!-- Twitter -->
+          <a class="btn btn-outline-dark btn-floating m-1 rounded-5" href="#!" role="button"><i
+              class="fab fa-twitter"></i></a>
+
+          <!-- Google -->
+          <a class="btn btn-outline-dark btn-floating m-1 rounded-5" href="#!" role="button"><i
+              class="fab fa-google"></i></a>
+
+          <!-- Instagram -->
+          <a class="btn btn-outline-dark rounded-5 btn-floating m-1" href="#!" role="button"><i
+              class="fab fa-instagram"></i></a>
+        </div>
+
+
+
+        <img
+          src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/5f8be444-7918-4558-aff0-e28069840db3/The+swoosh_VAR+002+copy.png?format=1500w"
+          width="800px">
+
+
+      </div>
+
+      <div class="col-6" style="padding: 0; margin: 0;">
+        <div
+          style="height: 100px; width: 290px; background-color: #eae0d7;font-family: 'Nunito Sans', sans-serif;position: absolute;z-index: 15; top:100px; left: -200px; margin-left: 200px; padding-left: 30px;">
+          <p
+            style="font-family: 'Nunito Sans', sans-serif; font-weight: bold; font-size: 15px;padding-top: 20px;text-align: right; margin-bottom: 0px; padding-right: 10px;">
+            OUR TRAVEL PHILOSOPHY</p>
+
+          <div class="text-right" style="margin-top: 0px;padding-right: 10px;"> <button
+              style="height: 23px; font-size: 11px; background-color: black;color: white;">Read More</button>
+          </div>
+        </div>
+        <img
+          src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/1564529837147-XEF10BWTY1J0UOKLPLBH/DSC02497.jpg?format=1000w"
+          style="height: 394px; width: 315px; position: relative; margin-left: 200px;">
+      </div>
+    </div>
+  </section>
+
+
+
+  <section style="margin-top: 50px;">
+    <p style="text-align: center; letter-spacing: 2px; font-weight: bolder;">LATEST FROM THE BLOG</p>
+
+    <div class="row11 ">
+      <div class="col-1"></div>
+      <div class="col-10 ">
+        <div class="row12 ">
+          <div class="col-3">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/1694081207815-HR6U2JT5FLYTVUHSSISX/859A3745.jpg?format=750w"
+              style="width: 250px; height: 250px;">
+            <p style="font-size: 13px; margin:10px; padding-left: 10px;font-weight: bold;">A CURATED GUIDE TO MENTON,
+              FRANCE | THE LEMON TOWN</p>
+          </div>
+          <div class="col-3">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/1693233964566-F714ZMHRFPX0MY6P4OF4/859A1811.jpg?format=750w"
+              style="width: 250px;  height: 250px;">
+            <p style="font-size: 13px; margin:10px; padding-left: 0px;font-weight: bold;">13 WONDERFUL THINGS TO DO IN
+              NICE, FRANCE | THE PRETTY CITY</p>
+
+
+          </div>
+          <div class="col-3">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/1692785370500-9GEDQ7LH172BIHGBQTJP/859A7202.jpg?format=750w"
+              style="width: 250px; height: 250px;">
+            <p style="font-size: 13px; margin:10px; padding-left: 0px;font-weight: bold;">CAR HIRE AND DRIVING IN
+              ALBANIA | THE ESSENTIAL GUIDE</p>
+
+
+          </div>
+          <div class="col-3">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/1692022177805-7IQBWS77CPM5X5MD5QME/859A0244-2.jpg?format=750w"
+              style="width: 250px; height: 250px;">
+            <p style="font-size: 13px; margin:10px; padding-left: 10px;font-weight: bold;">7 DELIGHTFUL THINGS TO DO IN
+              OIA, SANTORINI</p>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="col-1"></div>
+
+    </div>
+  </section>
+  <section style="margin-top: 50px;">
+    <p style="text-align: center; letter-spacing: 2px; font-weight: bolder;">LOOKING FOR SOMEWHERE IN PARTICULAR?</p>
+    <div class="text-center">
+      <input class="search" type="search"
+        style="width: 400px; border-top:none; border-left: none;border-right: none; outline: none;  border-color: rgb(226, 219, 88);"
+        placeholder="search">
+    </div>
+  </section>
+
+  <section style="margin-top: 50px;">
+    <div>
+      <img
+        src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/1614364160684-WSO2LL2ZPCRBH76QXG47/IMG_2152.jpg?format=2500w"
+        style="width: 100%; height: 300px; object-fit: cover;object-position: bottom; position: absolute; ">
+      <div style="position: relative; top: 70px;">
+        <p
+          style="text-align: center; font-size: 13px; letter-spacing: 2.9px; font-weight: bold; color: white;text-shadow: 3px 3px 3px black; ">
+          OUR MONTHLY NEWSLETTER FOR THE</p>
+        <p
+          style="text-align: center; font-size: 40px; font-weight: bolder; letter-spacing: 3px; color: white;text-shadow: 3px 3px 3px black;">
+          CONSTANTLY CURIOUS</p>
+        <p style="text-align: center;"><a href="#"
+            style="text-decoration: none;font-size: 20px; font-weight: bolder; letter-spacing: 3px; color: rgb(0, 0, 0);text-shadow: 3px 3px 3px rgb(202, 188, 188);">SIGN
+            UP</a></p>
+      </div>
+    </div>
+
+    <div style="margin-top: 110px;">
+      <img
+        src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/1619706660898-8EVJJ06GFFGKLCGM2LAT/IMG_1895-2.jpg?format=2500w"
+        style="width: 100%; height: 240px; object-fit: cover;object-position: bottom; position: absolute;">
+      <div style="position: relative; top: 70px;">
+        <p
+          style="text-align: center; font-size: 13px; letter-spacing: 2.9px; font-weight: bold; color: rgb(255, 247, 247);text-shadow: 3px 3px 3px black;   ">
+          PLAN FOR THE PERFECT SUMMER</p>
+        <p
+          style="text-align: center; font-size: 50px; font-weight: bolder; letter-spacing: 3px; color: white;text-shadow: 3px 3px 3px black;">
+          ITALY</p>
+
+      </div>
+    </div>
+
+  </section>
+
+  <section style="margin-top: 230px;">
+    <p style="text-align: center; letter-spacing: 1.2px;">The European country to which we return again and again, each
+      time discovering a new treasure or deeper appreciation.</p>
+    <p style="text-align: center;letter-spacing: 1.2px;">Start planning for your own escape to Italy with our
+      destination guides below, or visit our Italy page for more on Puglia, the Dolomites, and beyond.
+
+    </p>
+
+    <div class="row11 ">
+      <div class="col-1"></div>
+      <div class="col-10 ">
+        <div class="row12 ">
+          <div class="col-4">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/1614174992726-KJNJ2Y7UXKLQCHNLK13L/Italy-Beaches-Along-Dusty-Roads-2.jpg?format=1500w"
+              style="width: 350px; height: 400px; object-position: right; position: absolute;">
+
+            <div style="position: relative; top: 270px;">
+              <p
+                style="text-align: center; font-size: 18px; letter-spacing: 2.9px; font-weight: bold; color: rgb(255, 247, 247);text-shadow: 3px 3px 3px black;   ">
+                13 WONDERFUL THINGS<BR> TO DO IN SICILY</p>
+
+
+            </div>
+
+          </div>
+          <div class="col-4">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/1614175003936-ZQYHMOPE445XS1NRIZ9F/manarola-along-dusty-roads-21.jpg?format=1500w"
+              style="width: 350px;  height: 400px; position: absolute;">
+            <div style="position: relative; top: 270px;">
+              <p
+                style="text-align: center; font-size: 18px; letter-spacing: 2.9px; font-weight: bold; color: rgb(255, 247, 247);text-shadow: 3px 3px 3px black;   ">
+                13 WONDERFUL THINGS<BR> TO DO IN CINIQUE TERRE</p>
+
+
+            </div>
+
+          </div>
+          <div class="col-4">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/1614175034951-75Z1LFBY7133L6SW6HSX/2L1A0798.jpg?format=1500w"
+              style="width: 350px; height: 400px; position: absolute;">
+            <div style="position: relative; top: 270px;">
+              <p
+                style="text-align: center; font-size: 18px; letter-spacing: 2.9px; font-weight: bold; color: rgb(255, 247, 247);text-shadow: 3px 3px 3px black;   ">
+                13 WONDERFUL THINGS<BR> TO DO IN VENICE</p>
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+      <div class="col-1"></div>
+
+    </div>
+  </section>
+
+  <section style="margin-top: 450px;">
+    <div>
+      <img
+        src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/1687945651070-WTJX4KLV99LWCEHALK1Z/2L1A4637.jpg?format=2500w"
+        style="width: 100%; height: 300px; object-fit: cover;object-position: center; position: absolute; filter:brightness(100%)">
+      <div style="position: relative; top: 80px;">
+        <p
+          style="text-align: center; font-size: 18px; letter-spacing: 2.9px; font-weight: bold; color: white;text-shadow: 3px 3px 3px black; margin-bottom: 0px;">
+          DISCOVER THE STUNNING BALEARIC ISLAND</p>
+        <p
+          style="text-align: center; font-size: 50px; font-weight: bolder; letter-spacing: 5px; color: white;text-shadow: 3px 3px 3px black;margin-top: 0px; padding-top: 0px;">
+          MENORCA</p>
+
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-top: 230px;">
+    <p style="text-align: center; letter-spacing: 1.2px; margin: 20px; font-size: 16px;">Although it may principally be
+      viewed as a summer holiday island - a place to relax, top up the tan, and eat well - the truth is that Menorca
+      isn’t quite what you may be thinking of when ‘Spanish holiday destination’ comes to mind. Sure, there’s coastal
+      resorts and swimming pools and luxury hotels and holiday homes and tourists and beaches - all the elements you’d
+      expect - but this is a quieter place where a balance, delicate and fragile though it may be, is being sought.</p>
+    <p style="text-align: center;letter-spacing: 1.2px; margin: 20px; font-size: 16px;">About a fifth of the size of
+      neighbouring Mallorca, instead of the brash concrete, noise, and hedonism you find elsewhere, the words which come
+      to mind for us most when we think of Menorca are: undeveloped, understated, ruggedly rural and remoteness.
+
+    </p>
+    <div class="row11 ">
+      <div class="col-1"></div>
+      <div class="col-10 ">
+        <div class="row12 ">
+          <div class="col-4">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/948f3db9-a13a-4fcf-9a9f-c1cf7bc8cf10/IMG_7956.jpg?format=1500w"
+              style="width: 350px; height: 300px; object-position: right; position: absolute;">
+
+            <div style="position: relative; top: 170px;">
+              <p
+                style="text-align: center; font-size: 18px; letter-spacing: 2.9px; font-weight: bold; color: rgb(255, 247, 247);text-shadow: 3px 3px 3px black;   ">
+                13 WONDERFUL THINGS<BR> TO DO IN MENORCA</p>
+
+
+            </div>
+
+          </div>
+          <div class="col-4">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/463dfa6d-01ac-4265-9c9a-35e0520c8b2b/2L1A6125.jpg?format=1500w"
+              style="width: 350px;  height: 300px; position: absolute;">
+            <div style="position: relative; top: 170px;">
+              <p
+                style="text-align: center; font-size: 18px; letter-spacing: 2.9px; font-weight: bold; color: rgb(255, 247, 247);text-shadow: 3px 3px 3px black;   ">
+                WHERE TO STAY IN <BR>MENORCA</p>
+
+
+            </div>
+
+          </div>
+          <div class="col-4">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/42f89352-8d33-483b-8d27-1370764d0ac9/2L1A5572.jpg?format=1500w"
+              style="width: 350px; height: 300px; position: absolute;">
+            <div style="position: relative; top: 170px;">
+              <p
+                style="text-align: center; font-size: 18px; letter-spacing: 2.9px; font-weight: bold; color: rgb(255, 247, 247);text-shadow: 3px 3px 3px black;   ">
+                23 THINGS TO KNOW BEFORE VISITING MENORCA</p>
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+      <div class="col-1"></div>
+    </div>
+
+    <div class="row11 " style="margin-top: 235px;">
+      <div class="col-1"></div>
+      <div class="col-10 ">
+        <div class="row12 ">
+          <div class="col-4">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/fb4cae89-ed64-4d4f-b9f6-a388a1d2121a/2L1A6537.jpg?format=1500w"
+              style="width: 350px; height: 300px; object-position: right; position: absolute;">
+
+            <div style="position: relative; top: 170px;">
+              <p
+                style="text-align: center; font-size: 18px; letter-spacing: 2.9px; font-weight: bold; color: rgb(255, 247, 247);text-shadow: 3px 3px 3px black;   ">
+                13 WONDERFUL THINGS<BR> TO DO IN CIUTADELLA</p>
+
+
+            </div>
+
+          </div>
+          <div class="col-4">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/33c52f70-a6b7-4128-bc9f-09523bd65be3/2L1A3219.jpg?format=1500w"
+              style="width: 350px;  height: 300px; position: absolute;">
+            <div style="position: relative; top: 170px;">
+              <p
+                style="text-align: center; font-size: 18px; letter-spacing: 2.9px; font-weight: bold; color: rgb(255, 247, 247);text-shadow: 3px 3px 3px black;   ">
+                THE BEST BEACHES IN <BR>MENORCA</p>
+
+
+            </div>
+
+          </div>
+          <div class="col-4">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/2192eb6a-ff9e-44df-8540-4b2110a87889/DSC00540.jpg?format=1500w"
+              style="width: 350px; height: 300px; position: absolute;">
+            <div style="position: relative; top: 170px;">
+              <p
+                style="text-align: center; font-size: 18px; letter-spacing: 2.9px; font-weight: bold; color: rgb(255, 247, 247);text-shadow: 3px 3px 3px black;   ">
+                13 WONDERFUL THINGS<BR> TO DO IN MAHON</p>
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+      <div class="col-1"></div>
+  </section>
+
+  <section style="margin-top: 350px;">
+    <div>
+      <img
+        src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/1638358430144-DEOZ4EDGFO8HJ6I18BAW/Cover+Image-Grey.png?format=2500w"
+        style="width: 100%; height: 500px; object-fit: cover;object-position: center; position: absolute; ">
+      <div style="position: relative; top: 30px;">
+
+        <p
+          style="text-align: center; font-size: 40px; font-weight: bolder; letter-spacing: 3px; color: white;text-shadow: 3px 3px 3px black;">
+          THE PRINT STORE</p>
+        <p style="text-align: center;"><a href="#"
+            style="text-decoration: none;font-size: 20px; font-weight: bolder; letter-spacing: 3px; color: rgb(0, 0, 0);text-shadow: 3px 3px 3px rgb(202, 188, 188);">SHOP
+            NOW</a></p>
+      </div>
+    </div>
+
+    <div style="margin-top: 340px;">
+      <img
+        src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/1614177681093-V8HGWW9NNPQQU7ZT2H8Q/DSC03553.jpg?format=2500w"
+        style="width: 100%; height: 400px; object-fit: cover;object-position: CENTER; position: absolute; ">
+      <div style="position: relative; top: 40px;">
+        <p
+          style="text-align: center; font-size: 13px; letter-spacing: 2.9px; font-weight: bold; color: rgb(255, 247, 247);text-shadow: 3px 3px 3px black;   ">
+          FIND YOUR TRAVEL ESCAPE</p>
+        <p
+          style="text-align: center; font-size: 50px; font-weight: bolder; letter-spacing: 3px; color: white;text-shadow: 3px 3px 3px black;">
+          THE TRAVEL JOURNALS</p>
+
+      </div>
+    </div>
+
+  </section>
+
+  <section style="margin-top: 330px;">
+    <p style="text-align: center; letter-spacing: 1.2px; margin: 20px; font-size: 16px;">
+      We are all a combination of the journeys we take and the roads we venture down, whether it’s alone or together.
+    </p>
+    <p style="text-align: center;letter-spacing: 1.2px; margin: 20px; font-size: 16px;">These are some of our most
+      memorable escapes, or our favourite entries on coffee-stained pages.
+
+    </p>
+    <div class="row11 ">
+      <div class="col-1"></div>
+      <div class="col-10 ">
+        <div class="row12 ">
+          <div class="col-3">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/1614352375017-EDUWPR9EB2R3D507TFW4/IMG_3384.jpg?format=500w"
+              style="width: 250px; height: 250px;">
+            <p style="font-size: 13px; margin:10px; padding-left: 10px;font-weight: bold;">WHERE THE FORGOTTEN ANIMALS
+              OF BOLIVIA ARE LOVED</p>
+          </div>
+          <div class="col-3">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/1614353550454-D5VE1F4C198UNHUN3UMK/IMG_2301.jpg?format=500w"
+              style="width: 250px;  height: 250px;">
+            <p style="font-size: 13px; margin:10px; padding-left: 0px;font-weight: bold;">THE BASQUE COUNTRY | MORE THAN
+              JUST THE BILBOA EFFECT</p>
+
+
+          </div>
+          <div class="col-3">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/1614352448581-DW0PB1G33Q7ZRNCUGSMY/caballos-de-luz-along-dusty-roads-21.jpg?format=500w"
+              style="width: 250px; height: 250px;">
+            <p style="font-size: 13px; margin:10px; padding-left: 0px;font-weight: bold;">HORSE RIDING IN URUGUAY | A
+              TALE OF TWO DREAMS</p>
+
+
+          </div>
+          <div class="col-3">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/1614352048223-49LSV3S0K5ZNTI61Z8L3/IMG_6188.jpg?format=500w"
+              style="width: 250px; height: 250px;">
+            <p style="font-size: 13px; margin:10px; padding-left: 10px;font-weight: bold;">OUR NIGHT IN THE SAHARA
+              DESERT</p>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="col-1"></div>
+
+    </div>
+
+    <div class="row11 ">
+      <div class="col-1"></div>
+      <div class="col-10 ">
+        <div class="row12 ">
+          <div class="col-3">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/1614352245185-ANFJBKS4W9JEHRZUESVU/IMG_9960.jpg?format=500w"
+              style="width: 250px; height: 250px;">
+            <p style="font-size: 13px; margin:10px; padding-left: 10px;font-weight: bold;">CHERNOBYL | DISCOVERING
+              SECRETS IN THE SNOW</p>
+          </div>
+          <div class="col-3">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/1614352198466-4WUSSBEXTMHQ8UYFIFVR/DSC01474.jpg?format=500w"
+              style="width: 250px;  height: 250px;">
+            <p style="font-size: 13px; margin:10px; padding-left: 0px;font-weight: bold;">THREE MORNINGS IN SWITZERLAND
+              | A HIKING STORY</p>
+
+
+          </div>
+          <div class="col-3">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/1614352294833-U7WWTV2V9XU962P5FA95/DSC07850.jpg?format=500w"
+              style="width: 250px; height: 250px;">
+            <p style="font-size: 13px; margin:10px; padding-left: 0px;font-weight: bold;">THE ST PETE REVIVAL STORY</p>
+
+
+          </div>
+          <div class="col-3">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/1614353602038-702M8QEV8IL5DV4X3XW0/20180622-IMG_6368.jpg?format=500w"
+              style="width: 250px; height: 250px;">
+            <p style="font-size: 13px; margin:10px; padding-left: 10px;font-weight: bold;">ANTWERP ARRIVALS</p>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="col-1"></div>
+
+    </div>
+
+
+  </section>
+
+  <section style="margin-top: 50px;">
+    <div>
+      <img
+        src="https://images.squarespace-cdn.com/content/v1/53172b1be4b0cc8a5401db4a/1564523185860-340THSZIM66R5LWD11AZ/IMG_9117.jpg?format=2500w"
+        style="width: 100%; height: 600px; object-fit: cover;object-position: bottom; position: absolute;">
+      <div style="position: relative; top: 70px;">
+        <p
+          style="text-align: center; font-size: 13px; letter-spacing: 2.9px; font-weight: bold; color: white;text-shadow: 3px 3px 3px black; ">
+          NEW TO ALONG DUSTY ROADS?</p>
+        <p
+          style="text-align: center; font-size: 40px; font-weight: bolder; letter-spacing: 3px; color: white;text-shadow: 3px 3px 3px black;">
+          DISCOVER OUR STORY</p>
+        <p style="text-align: center;"><a href="#"
+            style="text-decoration: none;font-size: 20px; font-weight: bolder; letter-spacing: 3px; color: rgb(0, 0, 0);text-shadow: 3px 3px 3px rgb(202, 188, 188);">CLICK
+            HERE</a></p>
+      </div>
+    </div>
+  </section>
+  <section style="margin-top: 530px;">
+    <p style="text-align: center; letter-spacing: 1.2px; margin: 20px; font-size: 16px;">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque vero sit in doloribus qui nobis veritatis sequi,
+      quos optio labore ut cupiditate consequuntur molestias culpa, at fugit repellendus sapiente nulla!</p>
+    <p style="text-align: center;letter-spacing: 1.2px; margin: 20px; font-size: 16px;">Lorem ipsum dolor sit amet,
+      consectetur adipisicing elit. Sint nobis ipsum doloribus ullam? Ex quis reiciendis iusto accusantium ipsa
+      necessitatibus deserunt optio perferendis itaque voluptate repellendus, debitis provident dolorem hic.
+
+    </p>
+  </section>
+
+  <footer class="text-center text-white" style="background-color: #eae0d7; margin-top: 10px;">
+    <!-- Grid container -->
+    <div class="container p-4">
+      <!-- Section: Images -->
+      <section class="">
+        <div class="row">
+          <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+            <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
+              <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp" class="w-100" />
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+            <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
+              <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/111.webp" class="w-100" />
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+            <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
+              <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/112.webp" class="w-100" />
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+            <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
+              <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/114.webp" class="w-100" />
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+            <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
+              <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/115.webp" class="w-100" />
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+            <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
+              <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/116.webp" class="w-100" />
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Section: Images -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2023 Copyright:
+      <a class="text-white" href="https://mdbootstrap.com/">LetsTravel.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
